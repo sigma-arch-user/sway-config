@@ -248,6 +248,6 @@ default_floating_border pixel 4
 
 gaps inner 8
 
-font monospace 14
+font JetBrains Mono 14
 
 include /etc/sway/config.d/*
