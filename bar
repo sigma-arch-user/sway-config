@@ -1,0 +1,8 @@
+#!/bin/bash
+
+bat=$(cat /sys/class/power_supply/BAT1/capacity)
+disk=$(df -h / | tail -n 1 | awk '{print$3}')
+date=$(date +'%a %d %b %Y')
+time=$(date +'%H:%M:%S')
+
+echo "DISK: $disk   |   BAT: $bat%   |   $date   |   $time  "
