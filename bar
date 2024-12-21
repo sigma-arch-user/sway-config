@@ -12,4 +12,4 @@ bat_icons=(    )
 [[ "$wifi" != "" ]] && echo -n " $wifi   |   "
 echo -n " $disk   |   "
 [[ "$bat" != "" ]] && echo -n "$bat_icon $bat%   |   "
-echo -n " $date   |    $time  "
+echo " $date   |    $time  "
