@@ -4,7 +4,7 @@ wifi=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
 test -d /sys/class/power_supply/BAT1/capacity && bat=$(cat /sys/class/power_supply/BAT1/capacity)
 disk=$(df -h / | tail -n 1 | awk '{print$3}')
 date=$(date +'%a %d %b %Y')
-time=$(date +'%H:%M:%S')
+time=$(date +'%H:%M:')
 
 bat_icons=(    )
 [[ "$bat" != "" ]] && bat_icon=${bat_icons[(((bat - 1) / 20))]}
