@@ -247,6 +247,8 @@ bar {
     }
 }
 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 for_window [app_id="blueman"] floating enable
 for_window [app_id="galculator"] floating enable
 for_window [app_id="imv"] floating enable
