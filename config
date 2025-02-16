@@ -221,8 +221,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioRaiseVolume exec pamixer -i 5 && dunstify "Volume: $(pamixer --get-volume-human)" -h int:value:$(pamixer --get-volume) -r 69 -t 800 -i volume-level-high -u low
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && dunstify "Brightness: $(($(brightnessctl g) * 100 / $(brightnessctl m)))%" -h int:value:$(($(brightnessctl g) * 100 / $(brightnessctl m))) -r 69 -t 800 -i volume-level-high -u low
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && dunstify "Brightness: $(($(brightnessctl g) * 100 / $(brightnessctl m)))%" -h int:value:$(($(brightnessctl g) * 100 / $(brightnessctl m))) -r 69 -t 800 -i volume-level-high -u low
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && dunstify "Brightness: $(($(brightnessctl g) * 100 / $(brightnessctl m)))%" -h int:value:$(($(brightnessctl g) * 100 / $(brightnessctl m))) -r 69 -t 800 -i brightness-medium-symbolic -u low
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && dunstify "Brightness: $(($(brightnessctl g) * 100 / $(brightnessctl m)))%" -h int:value:$(($(brightnessctl g) * 100 / $(brightnessctl m))) -r 69 -t 800 -i brightness-medium-symbolic -u low
 
     # Special key to take a screenshot with grim
     bindsym Print exec grim
