@@ -62,6 +62,8 @@ exec swayidle -w \
 input type:keyboard {
    repeat_rate 45
    repeat_delay 300
+   xkb_layout us,ro(std)
+   xkb_options grp:alt_shift_toggle
 }
 
 input type:pointer {
@@ -262,7 +264,7 @@ for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, stic
 default_border pixel 4
 default_floating_border pixel 4
 
-gaps inner 8
+gaps inner 0
 
 font JetBrains Mono 14
 
