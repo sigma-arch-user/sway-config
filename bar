@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#wifi=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
 bat=$(cat /sys/class/power_supply/BAT1/capacity)
 disk=$(df -h / | tail -n 1 | awk '{print$3}')
 date=$(date +'%a %d %b %Y')
@@ -9,7 +8,4 @@ time=$(date +'%H:%M')
 bat_icons=(    )
 bat_icon=${bat_icons[(((bat - 1) / 20))]}
 
-#[[ "$wifi" != "" ]] && echo -n " $wifi   |   "
-echo -n " $disk   |   "
-echo -n "$bat_icon $bat%   |   "
-echo " $date   |    $time  "
+echo " $disk   |   $bat_icon $bat%   |    $date   |    $time  "
