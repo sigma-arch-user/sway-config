@@ -1,8 +1,8 @@
 anchor = top
 width = 100%
-height = 32
+height = 30
 horizontal = true
-font-size = 14
+font-size = 13
 prompt-text = " May I have a "
 font = JetBrains Mono
 outline-width = 0
