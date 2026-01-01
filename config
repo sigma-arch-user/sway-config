@@ -12,10 +12,12 @@ set $menu tofi-drun
 
 include /etc/sway/config-vars.d/*
 
-output * bg /home/ianis/pictures/wallpapers/default fill
+output * bg /home/ianis/pictures/wallpapers/.wallpaper fill
 
-output eDP-1 mode 2880x1800@120Hz scale 1.6
+#output eDP-1 mode 2880x1800@120Hz scale 1.66666666667
+output eDP-1 mode 2880x1800@120Hz scale 1.65
 output DP-2 resolution 3440x1440@143.975Hz 
+output HDMI-A-1 scale 2
 
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000' \
@@ -36,7 +38,7 @@ input type:pointer {
 
 input type:touchpad {
    natural_scroll true
-   scroll_factor 0.5
+   scroll_factor 0.25
    click_method clickfinger
    dwt false
 }
@@ -46,6 +48,7 @@ input type:touchpad {
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
+bindsym $mod+Shift+d exec exec $(ls /home/ianis/scripts | tofi --prompt-text " Run script ")
 floating_modifier $mod normal
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -153,7 +156,7 @@ bar {
 
    status_command while /home/ianis/scripts/bar; do sleep 1; done
    
-   workspace_min_width 35
+   workspace_min_width 32
 
    colors {
       statusline #ffffff
@@ -164,9 +167,11 @@ bar {
 
 #exec /usr/lib/polkit-1/polkit-agent-helper-1
 #exec /usr/libexec/polkit-mate-authentication-agent-1
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-mate-authentication-agent-1
 
-for_window [class=".*"] border normal
+#for_window [class=".*"] border normal
+for_window [class=".*"] border pixel 2
 for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 for_window [app_id="librepods"] floating enable
@@ -183,11 +188,11 @@ for_window [title="^Picture-in-Picture$"] floating enable, sticky enable, border
 for_window [title="^Picture-in-picture$"] floating enable, sticky enable, border pixel 2
 for_window [title="^Picture in picture$"] floating enable, sticky enable, border pixel 2
 
-#default_border pixel 2
-#default_floating_border pixel 2
+default_border pixel 2
+default_floating_border pixel 2
 
 gaps inner 0
 
-font JetBrains Mono 13
+font JetBrains Mono 12
 
 include /etc/sway/config.d/*
