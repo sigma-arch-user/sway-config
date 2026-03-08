@@ -3,7 +3,7 @@
 sep="   |   "
 bar=""
 
-if [[ $(file -f "$HOME/todo.md") ]]; then
+if [ -f "$HOME/todo.md" ]; then
    todos_done=$(grep -- '- \[x\]' $HOME/todo.md | wc -l)
    todos_all=$(grep -- '- \[.\]' $HOME/todo.md | wc -l)
    bar+=" $todos_done/$todos_all$sep"
@@ -12,7 +12,7 @@ fi
 disk=$(df -h / | tail -n 1 | awk '{print$3}')
 bar+=" $disk$sep"
 
-if [[ $(file -f "/sys/class/power_supply/BAT1/capacity") ]]; then
+if [ -f "/sys/class/power_supply/BAT1/capacity" ]; then
    bat=$(cat /sys/class/power_supply/BAT1/capacity)
    bat_icons=(    )
    bat_icon=${bat_icons[(((bat - 1) / 20))]}
